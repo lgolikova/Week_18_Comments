@@ -1,7 +1,7 @@
 #btn {
     margin: 10px 0;
     height: 30px;
-    background-color: rgb(213, 170, 30);
+    background-color: rgb(236, 188, 30);
     font-size: 20px;
 }
 
@@ -14,3 +14,7 @@
 h1 {
     font-family: sans-serif;
 }
+
+/* #username {
+    font-weight:bold
+} */

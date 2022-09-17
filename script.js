@@ -10,31 +10,30 @@ document.querySelector('#btn').addEventListener('click', () => {
     newComment.innerHTML = `${name.value}: ${commentChecked} <br><br>`;
     
     let x = document.createElement("img");
-    if(!avatar.value) {
-    x.src = './anonymous.png';
     x.width='50';
     x.height='50';
+    x.style.borderRadius = "50%"
+    if(!avatar.value) {
+    x.src = './anonymous.png';
+    
     } else {
         x.src = avatar.value;
     }
     document.querySelector('.comments').append(x);
     document.querySelector('.comments').append(newComment);
 
-
-
-
     if (comment.value == "") {
         newComment.style.display = "none";
+        x.style.display = "none";
     }
     else {
         newComment.style.display = "block";
     }
 
 
-
-
     comment.value = "";
     name.value = "";
+    avatar.value = "";
     })
 
 
