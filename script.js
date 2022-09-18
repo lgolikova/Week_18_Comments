@@ -1,39 +1,60 @@
+///////////////////разобраться
+
+
+document.addEventListener('DOMContentLoaded', function(event){
+    let name1 = localStorage.getItem('name');
+    if (name1!= null) {
+        document.getElementById('username').value = name1;
+    }
+    let avatar1 = localStorage.getItem('avatar');
+    if (avatar1!= null) {
+        document.getElementById('avatar').value = avatar1;
+    }
+})
+
 document.querySelector('#btn').addEventListener('click', () => {
     let comment = document.querySelector('#comment'); 
     let commentChecked = comment.value.replace(/xxx|viagra/ig, "***");
     let newComment = document.createElement("div");
-    let name = document.getElementById('username');
+    let username = document.getElementById('username');
     // let img = document.getElementById('img');
     let avatar = document.getElementById('avatar');
-    console
     
-    newComment.innerHTML = `${name.value}: ${commentChecked} <br><br>`;
+
+    newComment.innerHTML = `${username.value}: ${commentChecked} <br><br>`;
     
-    let x = document.createElement("img");
-    x.width='50';
-    x.height='50';
-    x.style.borderRadius = "50%"
+    let img = document.createElement("img");
+    img.width='50';
+    img.height='50';
+    img.style.borderRadius = "50%"
     if(!avatar.value) {
-    x.src = './anonymous.png';
-    
+        img.src = 'anonymous.png';
     } else {
-        x.src = avatar.value;
+        img.src = avatar.value;
     }
-    document.querySelector('.comments').append(x);
+    document.querySelector('.comments').append(img);
     document.querySelector('.comments').append(newComment);
 
     if (comment.value == "") {
         newComment.style.display = "none";
-        x.style.display = "none";
+        img.style.display = "none";
     }
     else {
         newComment.style.display = "block";
     }
 
 
+
+
     comment.value = "";
-    name.value = "";
+    username.value = "";
     avatar.value = "";
+    })
+
+    document.querySelector('#save').addEventListener('click', () => {
+        localStorage.clear();
+        localStorage.setItem('name', username.value);
+        localStorage.setItem('avatar', avatar.value);
     })
 
 

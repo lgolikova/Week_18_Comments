@@ -5,6 +5,10 @@
     font-size: 20px;
 }
 
+#btn:hover {
+    background-color: rgb(124, 213, 41);
+}
+
 .container {
     display: flex;
     flex-direction: column;
